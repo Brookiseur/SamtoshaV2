@@ -1,0 +1,43 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Actualite index{% endblock %}
+
+{% block main %}
+    <h1>Actualite index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>IsActive</th>
+                <th>ImageName</th>
+                <th>UpdatedAt</th>
+                <th>Tag</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for actualite in actualites %}
+            <tr>
+                <td>{{ actualite.id }}</td>
+                <td>{{ actualite.title }}</td>
+                <td>{{ actualite.isActive ? 'Yes' : 'No' }}</td>
+                <td>{{ actualite.imageName }}</td>
+                <td>{{ actualite.updatedAt ? actualite.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ actualite.tag }}</td>
+                <td>
+                    <a href="{{ path('app_admin_samtosha_actualite_show', {'id': actualite.id}) }}">show</a>
+                    <a href="{{ path('app_admin_samtosha_actualite_edit', {'id': actualite.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_samtosha_actualite_new') }}">Create new</a>
+{% endblock %}

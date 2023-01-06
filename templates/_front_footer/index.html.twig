@@ -1,0 +1,36 @@
+<div class="footer">
+
+    <div class="left">
+        {% for reseauSocial in reseauxSociaux %}
+            <div class="{{ reseauSocial.name }}">
+                <a href="{{reseauSocial.lienExterne}}">
+                    <img src="{{ asset('images/reseaux_sociaux/' ~ reseauSocial.imageName ) }}" alt="{{ reseauSocial.imageName }}"></a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="center">
+            <div class="mentionslegales">
+                <a href="">
+                    Mentions légales
+                            
+                </a>
+            </div>
+            <div class="sitemap">
+                <a href="">
+                    Plan du site
+                            
+                </a>
+            </div>
+            <div class="copyright">
+                Tous droits réservés &copy; Samtosha 2022
+                                    
+                            
+            </div>
+        </div>
+
+        <div class="right">
+        </div>
+
+    </div>
+    

@@ -1,0 +1,49 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Event index{% endblock %}
+
+{% block main %}
+    <h1>Event index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>StartEvent</th>
+                <th>EndEvent</th>
+                <th>Description</th>
+                <th>Background_color</th>
+                <th>Border_color</th>
+                <th>Text_color</th>
+                <th>Afficher</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for event in events %}
+            <tr>
+                <td>{{ event.id }}</td>
+                <td>{{ event.title }}</td>
+                <td>{{ event.startEvent ? event.startEvent|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ event.endEvent ? event.endEvent|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ event.description }}</td>
+                <td>{{ event.backgroundColor }}</td>
+                <td>{{ event.borderColor }}</td>
+                <td>{{ event.textColor }}</td>
+                <td>{{ event.afficher ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_admin_event_show', {'id': event.id}) }}">show</a>
+                    <a href="{{ path('app_admin_event_edit', {'id': event.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_event_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FrontCoursController!{% endblock %}
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/styles-carousel.min.css') }}">{% endblock %}
+{% block main %}
+
+
+<div class="carousel">
+	<figure>
+        
+        {% for cour in cours %}
+        {% if cour.presentation == true %}
+		<div class="card">
+            <h1>{{cour.name}}</h1>
+            <p>{{cour.description}}</p>
+            <p>{{cour.tarif}}</p>
+            <div class="btn-reverse">
+            <a href="/cours/{{cour.type}}">Voir les détails</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        
+	</figure>
+	<div class="navigation">
+		<button class="btn nav prev">Prev</button>
+		<button class="btn nav next">Next</button>
+	</div>
+</div>
+{% endblock %}
+{% block javascripts %}<script src="{{asset('js/front/carousel.js')}}"><script>{% endblock %}

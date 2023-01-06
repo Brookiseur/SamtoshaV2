@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Samtosha{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/styles-front-samtosha.min.css') }}">
+{% endblock %}
+
+{% block main %}
+
+<div class="zone2">
+    <div class="center actu">
+        <div class="btn toutactu">
+            <a href="samtosha/actualite">Voir toute l'actu</a>
+        </div>
+    </div>
+</div>
+<div class="zone2">
+    <div class="center blog">
+        <div class="btn toutblog">
+            <a href="samtosha/blog">Voir tout le blog</a>
+        </div>
+    </div>
+</div>
+<div class="zone2">
+    <div class="center temoignages">
+        <div class="btn touttemoignages">
+            <a href="samtosha/temoignages">Voir tous les temoignages</a>
+        </div>
+    </div>
+</div>
+<div class="zone2">
+    <div class="center presentation">
+        <div class="btn toutquisuisje">
+            <a href="samtosha/qui-suis-je">Présentation complète</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

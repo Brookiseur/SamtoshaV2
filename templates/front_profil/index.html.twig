@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FrontProfilController!{% endblock %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block main %}
+
+
+    <div class="form">
+    
+            {{ form_start(form)}}
+            <div class="info">
+                <div class="name profilrow form">
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name) }}
+                    {{ form_errors(form.name) }}
+                    {{ form_help(form.name) }}
+                </div>
+                <div class="firstname profilrow form">
+                    {{ form_label(form.firstname) }}
+                    {{ form_widget(form.firstname) }}
+                    {{ form_errors(form.firstname) }}
+                    {{ form_help(form.firstname) }}
+                </div>
+                <div class="phoneNumber profilrow form">
+                    {{ form_label(form.phoneNumber) }}
+                    {{ form_widget(form.phoneNumber) }}
+                    {{ form_errors(form.phoneNumber) }}
+                    {{ form_help(form.phoneNumber) }}
+                </div>
+            </div>
+            <div class="info">
+                <div class="email profilrow form">
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email) }}
+                {{ form_errors(form.email) }}
+                {{ form_help(form.email) }}
+                </div>
+                <div class="plainPasswordFirst profilrow form">
+                    {{ form_label(form.plainPassword.first) }}
+                    {{ form_widget(form.plainPassword.first) }}
+                    {{ form_errors(form.plainPassword.first) }}
+                    <div class="centerhelp">
+                    {{ form_help(form.plainPassword.first) }}
+                    </div>
+                </div>
+                <div class="plainPasswordSecond profilrow form">
+                    {{ form_label(form.plainPassword.second) }}
+                    {{ form_widget(form.plainPassword.second) }}
+                    {{ form_errors(form.plainPassword.second) }}
+                    {{ form_help(form.plainPassword.second) }}
+                </div>   
+            </div>
+            <div class="info">
+                <div class="adress profilrow form">
+                    {{ form_label(form.address) }}
+                    {{ form_widget(form.address) }}
+                    {{ form_errors(form.address) }}
+                    {{ form_help(form.address) }}
+                </div>
+                <div class="empty profilrow form">
+                </div>
+                <div class="adress2 profilrow form">
+                    {{ form_label(form.address2) }}
+                    {{ form_widget(form.address2) }}
+                    {{ form_errors(form.address2) }}
+                    {{ form_help(form.address2) }}
+                </div>
+            </div>
+            <div class="info">
+                <div class="zipcode form">
+                    {{ form_label(form.zipcode) }}
+                    {{ form_widget(form.zipcode) }}
+                    {{ form_errors(form.zipcode) }}
+                    {{ form_help(form.zipcode) }}
+                </div>
+                <div class="city profilrow form">
+                    {{ form_label(form.city) }}
+                    {{ form_widget(form.city) }}
+                    {{ form_errors(form.city) }}
+                    {{ form_help(form.city) }}
+                </div>
+                <div class="country profilrow form">
+                {{ form_label(form.country) }}
+                {{ form_widget(form.country) }}
+                {{ form_errors(form.country) }}
+                {{ form_help(form.country) }}
+                </div>   
+            </div>
+            <div class="form">
+            {{ form_row(form.save)}}
+            </div>
+            {{ form_end(form)}}
+    </div>
+{% endblock %}

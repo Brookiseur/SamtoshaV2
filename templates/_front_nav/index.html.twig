@@ -1,0 +1,56 @@
+
+        <ul>
+        {% for item in menu %}
+        {% if roleUser is null and item.forVisitor == true %}
+            <li class="menu-deroulant {{item.slug}}" >
+                <a href="{{path(item.href)}}">
+                    {% if item.imageName is not null %}
+                        <img src="{{ asset('images/nav/' ~ item.imageName )}}" class="imagenav" alt="{{item.imageName}}">
+                    {% endif %}
+                        {{item.title}}
+                </a>
+                <ul class="sous-menu">
+                {% for submenu in submenus %}
+                {% if submenu.child == item.slug  %}
+                    <li>
+                        <a href="{{path(submenu.href)}}">
+                            {{submenu.title}}
+                        </a>
+                    </li>
+                {% endif %}
+                {% endfor %}
+                </ul>
+                    
+            </li> 
+        {% elseif roleUser is not null and item.forUser == true %}
+            <li class="menu-deroulant {{item.slug}}">
+                <a href="{{path(item.href)}}">
+                {% if item.imageName is not null %}
+                    <img src="{{ asset('images/nav/' ~ item.imageName )}}" class="imagenav" alt="{{item.imageName}}">
+                {% endif %}
+                    {{item.title}}
+                </a>
+                <ul class="sous-menu">
+                {% for submenu in submenus %}
+                {% if submenu.child == item.slug  %}
+                {% if is_granted('ROLE_ADMIN') and submenu.forAdmin == true %}
+                    <li>
+                        <a href="{{path(submenu.href)}}">
+                            {{submenu.title}}
+                        </a>
+                    </li>
+                {% elseif is_granted('ROLE_USER') and submenu.forUser == true %}
+                    <li>
+                        <a href="{{path(submenu.href)}}">
+                            {{submenu.title}}
+                        </a>
+                    </li>
+                    
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+                </ul>
+            </li>
+        {% endif %}
+        {% endfor %}
+        </ul>

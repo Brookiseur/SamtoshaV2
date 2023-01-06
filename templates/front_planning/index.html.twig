@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Planning{% endblock %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/styles-calendar.min.css') }}">{% endblock %}
+{% block main %}
+
+<table class="calendar__table calendar__table{{weeks}}weeks">
+    
+    <div class="calendar__title">
+        <a href="/planning?month={{previousMonth}}&year={{yearPreviousMonth}}" class="btn">&lt;</a>
+        <h1>{{month}}</h1>
+        <a href="/planning?month={{nextMonth}}&year={{yearNextMonth}}" class="btn">&gt;</a>
+    </div>
+    {% for i in  0..(weeks) %}
+    <tr>
+        
+        {% for k, day in days %}
+            {% set p = k + i * 7 %}
+            {% if start == 1  %}
+                {% set startMonth = startMonday|date_modify("+" ~ p ~"day") %}
+            {% else %}
+                {% set startMonth = lastMonday|date_modify("+" ~ p ~"day") %}
+            {% endif %}
+                <td class = 
+                {% if startMonth|date('Y-m') == month.year ~ '-' ~ month.month %}
+                
+                {% else %}
+                "calendar__othermonth"
+                {% endif %}>
+                    <div class="calendar__weekday">
+                        {% if i == 0 %}{{day}}{% endif %}
+                    </div>
+                    
+                    <div class="calendar__day">
+                        {{startMonth|date('d')}}
+                    </div>
+                    
+                    {% for event in eventsMonth %}
+                        {% if event.duration >= 1 %}
+                        {% for i in 0..(event.duration - 1) %}
+                        {% if event.startEvent|date('Y-m-d')|date_modify('+' ~ i ~ 'day') == startMonth|date('Y-m-d')|date_modify('+0 day')%}
+                    <div class="startDayEvent">
+                        <div class="eventTitle"><h4>{{event.title}}<h4></div>
+                        <div class="timeEvent">de {{event.startEvent|date('H:i')}} à {{event.endEvent|date('H:i')}}</div>
+                        <div class="locationEvent">lieu : {{event.location}}</div>
+                    </div>
+                        {% set i = i + 1 %}
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </td>   
+        {% endfor %}
+        
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

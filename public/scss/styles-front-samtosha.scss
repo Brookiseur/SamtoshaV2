@@ -1,0 +1,24 @@
+
+
+main{
+    background-image:url('../images/samtosha/yoga.png'), url('../images/samtosha/lea2.webp');
+    background-position: center, center;
+    background-attachment: scroll, fixed;
+    background-repeat: no-repeat, no-repeat;
+    .btn{
+        top: 10px;
+        left: 10px;
+    }
+    .zone2{
+        width: 100vw;
+        height: 910px;
+        border: 2px solid red;
+        .center{
+            margin-left: auto;
+            margin-right: auto;
+            width:  1280px;
+            height: 100%;
+            border: 2px solid rgb(4, 0, 255);
+        }
+    }
+}

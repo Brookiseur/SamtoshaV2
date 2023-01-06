@@ -1,0 +1,123 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    color :#581413;
+    a{
+        color :#581413;
+    }
+}
+button{
+    all: unset;
+}
+
+main{
+    margin:90px 0 0 0;
+    .widthscreen{
+        width: 100vw;
+        height: 80vh;
+        border: 2px solid red;
+        .centerscreen{
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            width:  1280px;
+            height: 100%;
+            border: 2px solid rgb(4, 0, 255);
+        }
+    }
+    .btn:hover{
+        background-color: #581413;
+        color: #B2A086;
+        >a{
+            color:#B2A086;
+        }
+    }
+    .btn{
+        position: relative;
+        width: 150px;
+        height: 50px;
+        text-align: center;
+        border-radius: 30px;
+        border: 2px solid #581413;
+        background-color: #B2A086;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .btn-reverse:hover{
+        background-color: #B2A086;
+        color:#581413;
+        border: 2px solid #581413;
+        >a{
+            color:#581413;
+        }
+    }
+    .btn-reverse{
+        position: relative;
+        width: 150px;
+        height: 50px;
+        text-align: center;
+        top: 10px;
+        left: 10px;
+        border-radius: 30px;
+        border: 2px solid #B2A086;
+        background-color: #581413;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        a{
+            color: #B2A086;
+        }
+    }
+        a{
+            color: #581413;
+    }
+}
+
+.inputfield{
+    width: 400px;
+    height: 40px; 
+    text-align: center;
+    font-size: large;
+    letter-spacing: 2.5px;
+}
+.labelform{
+    font-size: 20px;
+}
+
+.form{
+    h1{
+        margin: 0 0 50px 0;
+    }
+    .btn{
+        margin-top: 50px;
+    }
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+    .info{
+        display: flex;
+        }
+    .centerhelp{
+        margin-right: 300px;
+        .helpform{
+            width: 350px;
+            position: absolute;
+            margin-top: 50px;
+        }
+    }
+    .profilrow{
+        width: 400px;
+        height: 150px;
+    }
+}
+
+

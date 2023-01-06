@@ -1,0 +1,24 @@
+{% block title %}Hello AdminNavController!{% endblock %}
+
+{% block body %}
+<div id ="nav-latteral" class="nav-latteral">
+    <div id="nav-close" class="nav-button">
+    <img src="{{asset('images/adminnav/close.png')}}" class="close picto" alt="fermer">
+    </div>
+    <div class="nav-links">
+    {% for item in menu %}
+    {% if  item.forAdminBoard is same as(true) %}
+        <div class="nav-link">
+            <a href="{{path(item.adminHref)}}">{{item.title}}</a>
+        </div>
+    {% endif %}
+    {% endfor %}    
+    </div>
+</div>
+<div id="nav-wrapper"></div>
+    <nav>
+        <div id="nav-open" class="nav-button">
+            <img src="{{asset('images/adminnav/menu.png')}}" class="menu picto" alt="menu">
+        </div>
+    </nav>
+{% endblock %}

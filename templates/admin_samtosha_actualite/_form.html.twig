@@ -1,0 +1,7 @@
+{{ form_start(form) }}
+    {{ form_row(form.isActive) }}
+    {{ form_row(form.tag)}}
+    {{ form_row(form.imageFile)}}
+    {% include 'admin_common/_required-fields.html.twig' %}
+    <button class="btn btn-success mt-3">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

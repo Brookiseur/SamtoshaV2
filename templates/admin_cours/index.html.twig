@@ -1,0 +1,53 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Cours index{% endblock %}
+
+{% block main %}
+    <h1>Cours index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Tarif</th>
+                <th>Description</th>
+                <th>Lieu</th>
+                <th>HoraireDeDebut</th>
+                <th>HoraireDeFin</th>
+                <th>Day</th>
+                <th>ParticipantMin</th>
+                <th>ParticipantMax</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cour in cours %}
+            <tr>
+                <td>{{ cour.id }}</td>
+                <td>{{ cour.name }}</td>
+                <td>{{ cour.type }}</td>
+                <td>{{ cour.tarif }}</td>
+                <td>{{ cour.description }}</td>
+                <td>{{ cour.lieu }}</td>
+                <td>{{ cour.horaireDeDebut ? cour.horaireDeDebut|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ cour.horaireDeFin ? cour.horaireDeFin|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ cour.day }}</td>
+                <td>{{ cour.participantMin }}</td>
+                <td>{{ cour.participantMax }}</td>
+                <td>
+                    <a href="{{ path('admin_cours_show', {'id': cour.id}) }}">show</a>
+                    <a href="{{ path('admin_cours_edit', {'id': cour.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_cours_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,43 @@
+.calendar__table {
+    width:60%;
+    height: calc(100vh - 150px);
+    margin: auto;
+    border-collapse: collapse;
+    td{
+        padding: 10px;
+        border: 1px solid #581413;
+        vertical-align: top;
+        width: 14.29%;
+        height: 20%;
+        .calendar__day{
+        font-size: 1.5em;
+            }
+        .calendar__weekday{
+            font-weight: bold;
+            font-size: 1.2em;
+            color:#581413;
+        }
+        .oneDayEvent{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+}
+.calendar__othermonth .calendar__day{
+        opacity: 0.3;
+}
+.calendar__title{
+    display: flex;
+    justify-content: center;
+    margin: 140px 0 50px 0;
+    align-items: center;
+    text-align: center;
+    h1{
+        margin: 0 30px;
+    }
+}
+
+.calendar__table5weeks td{
+    height: 16.66%;
+}

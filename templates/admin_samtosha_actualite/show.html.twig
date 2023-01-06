@@ -1,0 +1,42 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Actualite{% endblock %}
+
+{% block main %}
+    <h1>Actualite</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ actualite.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ actualite.title }}</td>
+            </tr>
+            <tr>
+                <th>IsActive</th>
+                <td>{{ actualite.isActive ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>ImageName</th>
+                <td>{{ actualite.imageName }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ actualite.updatedAt ? actualite.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Tag</th>
+                <td>{{ actualite.tag }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_samtosha_actualite_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_samtosha_actualite_edit', {'id': actualite.id}) }}">edit</a>
+
+    {{ include('admin_samtosha_actualite/_delete_form.html.twig') }}
+{% endblock %}

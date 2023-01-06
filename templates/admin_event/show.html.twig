@@ -1,0 +1,54 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Event{% endblock %}
+
+{% block main %}
+    <h1>Event</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ event.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ event.title }}</td>
+            </tr>
+            <tr>
+                <th>Start</th>
+                <td>{{ event.startEvent ? event.startEvent|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>End</th>
+                <td>{{ event.endEvent ? event.endEvent|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ event.description }}</td>
+            </tr>
+            <tr>
+                <th>Background_color</th>
+                <td>{{ event.backgroundColor }}</td>
+            </tr>
+            <tr>
+                <th>Border_color</th>
+                <td>{{ event.borderColor }}</td>
+            </tr>
+            <tr>
+                <th>Text_color</th>
+                <td>{{ event.textColor }}</td>
+            </tr>
+            <tr>
+                <th>Afficher</th>
+                <td>{{ event.afficher ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_event_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_event_edit', {'id': event.id}) }}">edit</a>
+
+    {{ include('admin_event/_delete_form.html.twig') }}
+{% endblock %}
